@@ -1,8 +1,6 @@
 image: gitpod/workspace-full-vnc:latest
 
 tasks:
-  - name: install wails requirements
-    init: sudo apt update && sudo apt install -y libgtk-3-dev libwebkit2gtk-4.0-dev nsis upx-ucl
   - name: install staticcheck
     init: go install honnef.co/go/tools/cmd/staticcheck@latest
   - name: install go-task
@@ -13,6 +11,8 @@ tasks:
     init: go install github.com/mgechev/revive@latest
   - name: install wails
     init: go install github.com/wailsapp/wails/v2/cmd/wails@latest
+  - name: install wails requirements
+    command: sudo apt update ; sudo apt install -y libgtk-3-dev libwebkit2gtk-4.0-dev nsis upx-ucl
 
 ports:
   - port: 5900
