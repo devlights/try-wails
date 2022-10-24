@@ -1,6 +1,13 @@
 version: '3'
 
 tasks:
+  init:
+    cmds:
+      - wails init -n app -v svelte
   doctor:
     cmds:
       - wails doctor
+  run:
+    dir: app
+    cmds:
+      - wails dev
