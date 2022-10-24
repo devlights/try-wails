@@ -1,7 +1,8 @@
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-full-vnc:latest
 
 tasks:
+  - name: install wails requirements
+    init: sudo apt update && sudo apt install -y libgtk-3-dev libwebkit2gtk-4.0-dev nsis upx-ucl
   - name: install staticcheck
     init: go install honnef.co/go/tools/cmd/staticcheck@latest
   - name: install go-task
@@ -32,3 +33,4 @@ ports:
 vscode:
   extensions:
     - golang.go
+    - svelte.svelte-vscode
