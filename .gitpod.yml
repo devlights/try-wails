@@ -1,0 +1,32 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: install staticcheck
+    init: go install honnef.co/go/tools/cmd/staticcheck@latest
+  - name: install go-task
+    init: go install github.com/go-task/task/v3/cmd/task@latest
+  - name: install goimport
+    init: go install golang.org/x/tools/cmd/goimports@latest
+  - name: install revive
+    init: go install github.com/mgechev/revive@latest
+
+ports:
+  - port: 5900
+    onOpen: ignore
+# vnc
+  - port: 6080
+    onOpen: open-preview
+# flutter
+  - port: 8080
+    onOpen: ignore
+  - port: 5037
+    onOpen: ignore
+  - port: 9100-9101
+    onOpen: ignore
+  - port: 30000-50000
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - golang.go
