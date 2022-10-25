@@ -3,7 +3,8 @@ version: '3'
 tasks:
   init:
     cmds:
-      - wails init -n app -v svelte
+      - wails init -n app -t svelte
+      - (cd app; go mod edit -module app)
   doctor:
     cmds:
       - wails doctor
@@ -11,3 +12,6 @@ tasks:
     dir: app
     cmds:
       - wails dev
+  clean:
+    cmds:
+      - rm -rf app/
